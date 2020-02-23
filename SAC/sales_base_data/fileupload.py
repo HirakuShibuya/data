@@ -7,7 +7,7 @@ class fupload:
   #def __init__(self,sname='all'):
         #self.sname = sname
   
-  def uploadFile(self,sname):
+  def uploadFile(sname):
 ############################################
 #売上情報をアップロード
 ############################################
