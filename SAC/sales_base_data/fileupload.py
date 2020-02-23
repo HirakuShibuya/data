@@ -3,10 +3,10 @@
 
 class fileupload:
   
-  def __init__(self,name):
-        self.name = name
+  def __init__(self,sname='all'):
+        self.sname = sname
   
-  def uploadFile(self,name='all'):
+  def uploadFile(self):
 ############################################
 #売上情報をアップロード
 ############################################
@@ -23,4 +23,4 @@ class fileupload:
 
     uploaded = files.upload()
 
-    df=pd.read_excel(list(uploaded)[0],sheet_name=name)
+    df=pd.read_excel(list(uploaded)[0],sheet_name=self.sname)
