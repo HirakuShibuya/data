@@ -11,7 +11,7 @@ from dateutil.relativedelta import relativedelta
 from google.colab import files
 import imageio
 
-!rm -rf *.xlsx
+#!rm -rf *.xlsx
 
 inputs = []
 images = []
