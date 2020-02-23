@@ -2,6 +2,10 @@
 
 
 class fileupload:
+  
+  def __init__(self,name):
+        self.name = name
+  
   def uploadFile(self,name='all'):
 ############################################
 #売上情報をアップロード
