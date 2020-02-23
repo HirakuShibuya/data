@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-class fileupload:
+class fpload:
   
   
   #def __init__(self,sname='all'):
