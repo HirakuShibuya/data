@@ -25,3 +25,5 @@ class fupload:
     uploaded = files.upload()
 
     df=pd.read_excel(list(uploaded)[0],sheet_name=sname)
+    
+    return df
