@@ -80,6 +80,6 @@ class fupload:
 
   
   
-    return df_SEC, df_OE, df_OS, df_OTBV, df_OI, df_SOL, df_APAC, df_OTH, df_SEC
+    return df_SEC, df_OE, df_OS, df_OTBV, df_OI, df_SOL, df_APAC, df_OTH, productG
 
 
