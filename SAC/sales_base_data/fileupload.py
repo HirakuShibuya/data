@@ -34,7 +34,7 @@ class fupload:
   
 
 
-  def preprocessing2(df):
+  def preprocessing(df):
   
     dfs=[]
   
