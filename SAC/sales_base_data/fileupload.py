@@ -6,11 +6,12 @@ class fupload:
   
   #def __init__(self,sname='all'):
         #self.sname = sname
-  
-  def uploadFile(sname):
+
 ############################################
 #売上情報をアップロード
 ############################################
+   
+  def uploadFile(sname):
 
     import pandas as pd
     import datetime
@@ -27,3 +28,58 @@ class fupload:
     df=pd.read_excel(list(uploaded)[0],sheet_name=sname)
     
     return df
+  
+def proprocessing(dframe):
+  
+  dfs=[]
+  
+  #内部取引を消去
+  df_SEC=df[~df["得意先コード"].str.startswith("99")]
+  dfs.append[df_SEC]
+  
+  #OE売上()
+  df_OE=df_SEC[df_SEC["デパートメント（小）"].str.contains('(?:WEU|AFRICA|CEE|CIS|DACH|UK&IE|ME|Alliance)')]
+  dfs.append[df_OE]
+
+  #OS売上
+  df_OS=df_SEC[df_SEC["デパートメント（小）"].str.startswith("OS")]
+  dfs.append[df_OS]
+
+  #OTBV売上
+  df_OTBV=df_SEC[df_SEC["デパートメント（中）"].str.startswith("OTBV")]
+  df_OTBV=df_OTBV[df_OTBV["デパートメント（小）"].str.startswith("Security")]
+  dfs.append[df_OTBV]
+
+  #OI売上
+  df_OI=df_SEC[df_SEC["デパートメント（中）"].str.startswith("OI")]
+  df_OI=df_OI[df_OI["デパートメント（小）"].str.contains('(?:SEC|Export)')]
+  dfs.append[df_OI]
+
+
+  #ソリューション売上
+  df_SOL=df[df["デパートメント（特大）"].str.startswith("ｿﾘｭｰｼｮﾝ事業部")] #内部取引含めている
+  dfs.append[df_SOL]
+
+  #APAC売上
+  df_APAC=df_SEC[df_SEC["デパートメント（特大）"].str.startswith("APAC営業本部")]
+  df_APAC=df_APAC[df_APAC["デパートメント（中）"].str.startswith("APAC(SEC)営業(按分含)")]
+  dfs.append[df_APAC]
+
+  #OTH売上
+  df_OTH=df_SEC[df_SEC["デパートメント（中）"].str.startswith("OTH")]
+  df_OTH=df_OTH[df_OTH["デパートメント（小）"].str.startswith("SEC")]
+  dfs.append[df_OTH]
+
+  #製品G
+  df_SEC_div=df_SEC[df_SEC['ディビジョン（特大）']=='SEC']
+  df_SEC_div=df_SEC_div[df_SEC_div['会計年度']>2017]
+  df_SEC_div=df_SEC_div[df_SEC_div['ディビジョン（小）'].str.match('(?:VXI|VXS|BX|WX|RLS|CMOD|QXI|SL|AX|IVPC|RXC|CDX|SIP)')]
+
+
+  productG=df_SEC_div.pivot_table(values=['数量'],
+                               index=['ディビジョン（中）','ディビジョン（小）'],columns=['会計年度','会計期間'],
+                               aggfunc='sum', fill_value=0)#,margins=True,margins_name='TOTAL')
+  dfs.append[df_productG]
+  
+  
+  return dfs
