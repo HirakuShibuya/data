@@ -80,7 +80,7 @@ class func:
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
-    %matplotlib inline
+    #%matplotlib inline
     import os
 
     os.makedirs("img", exist_ok=True)
