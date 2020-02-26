@@ -122,6 +122,8 @@ class func:
         plt.savefig('img/'+new_dir+'/'+dframe.index[i]+'.png')
 
         plt.show()
+        
+        plt.close()
 
       except:
         print("")
@@ -175,6 +177,8 @@ class func:
         plt.savefig('img/'+new_dir+'/'+dframe.index[i][0]+"_"+dframe.index[i][1]+'.png')
 
         plt.show()
+        
+        plt.close()
 
       except:
         print("")
