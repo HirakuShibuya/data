@@ -52,7 +52,7 @@ class fupload:
 
     #OTBV売上
     df_OTBV=df_SEC[df_SEC["デパートメント（中）"].str.startswith("OTBV")]
-    df_OTBV=df_OTBV[df_OTBV["デパートメント（小）"].str.startswith("Security")]
+    df_OTBV=df_OTBV[df_OTBV["ディビジョン（特大））"].str.startswith("SEC")]
 
 
     #OI売上
