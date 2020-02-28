@@ -61,7 +61,7 @@ class createHtml():
 
   '''
 
-    src=create_html2(dframe,dir)
+    src=self.create_html2(dframe,dir)
 
     html=html+src
 
