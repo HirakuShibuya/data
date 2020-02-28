@@ -1,7 +1,7 @@
 class createHtml():
   
   import os
-  def create_html2(self, dframe,dir):
+  def create_html2(dframe,dir):
     
     files=os.listdir('img/'+dir)
     list=[]
