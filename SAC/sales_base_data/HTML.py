@@ -1,4 +1,21 @@
 class createHtml():
+  
+  import os
+  def create_html(dframe,dir):
+    
+    files=os.listdir('img/'+dir)
+    list=[]
+    for i, d in enumerate(files):
+      src='<img src="graph/img/'+dir+'/'+d+'" alt="sample" width="100%" height="100%" /><br>'
+      list.append(src)
+
+    src2=""
+    for i,d in enumerate(list):
+      src2=src2+d
+
+    return src2
+  
+  
   def cHtml(dframe, dir):
     html='''
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
