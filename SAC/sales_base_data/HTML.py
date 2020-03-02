@@ -1,7 +1,11 @@
 class createHtml():
   
   import os
-  def create_html2(dframe,dir):
+  
+  def __init__(self):
+    print("")
+  
+  def create_html2(self, dframe, dir):
     
     files=os.listdir('img/'+dir)
     list=[]
@@ -16,7 +20,7 @@ class createHtml():
     return src2
   
   
-  def cHtml(dframe, dir):
+  def cHtml(self, dframe, dir):
     html='''
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
