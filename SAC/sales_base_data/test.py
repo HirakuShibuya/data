@@ -5,6 +5,6 @@ class test_s:
   def print_name(sname):
     print(sname)
     
-  def print_name2(sname):
+  def print_name2(self,sname):
     self.print_name(sname)
     
