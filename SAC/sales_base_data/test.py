@@ -6,5 +6,5 @@ class test_s:
     print(sname)
     
   def print_name2(sname):
-    print_name(sname)
+    self.print_name(sname)
     
