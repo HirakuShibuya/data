@@ -1,4 +1,4 @@
-class test:
+class test_s:
   def __init__(self,sname='all'):
     self.sname = sname 
     
